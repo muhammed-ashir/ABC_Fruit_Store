@@ -20,6 +20,46 @@ addbtn.addEventListener("click", function(){
         
     f_Obj.push({name:name_val, price:price_val,image:image_val});
     localStorage.setItem("fruits", JSON.stringify(f_Obj));
-    showtask();
+    location.reload();
 })
 
+// showtask
+function showtask(){
+    let webtask = localStorage.getItem("fruits");
+    if(webtask == null){
+        taskObj = [];
+    }
+    else{
+        taskObj = JSON.parse(webtask);
+    }
+    let html = '';
+    let addedtasklist = document.getElementById("addedtasklist");
+    taskObj.forEach((item, index) => {
+
+        if(item.completeStatus==true){
+            taskCompleteValue = `<td class="completed">${item.task_name}</td>`;
+        }else{
+            taskCompleteValue = `<td>${item.task_name}</td>`;
+        }
+        html += `<tr>
+                    <td>${index+1}</td>
+                    <td>${item.name}</td>
+                    <td>${item.price}</td>
+                    <td>${item.image}</td>
+                    <td>
+                            <a href="" onclick="edittask(${index})" class="btn" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i></a>
+                            <a href="" id=${index} onclick="return confirm('Do you want to Delete');"><i class="fa fa-trash" style="color:red"></i></a>
+                    </td>
+                </tr>`;
+    });
+    addedtasklist.innerHTML = html;
+}
+
+
+
+$(document).ready(function () {
+    $('#fruits').DataTable();
+});
+$('#fruits').dataTable( {
+    "lengthChange": false
+});
