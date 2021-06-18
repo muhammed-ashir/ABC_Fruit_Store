@@ -33,18 +33,18 @@
         
                 <div class="form-group">
                     <label class="control-label">Price <span style="color:red">*</span></label>
-                    <input type="text" name="desg" class="form-control" required value="<?php echo htmlentities($result->desg);?>">
+                    <input type="text" name="desg" class="form-control" required value="gzdxf">
                 </div>
                 
                 <div class="form-group">
                     <label class="control-label">Image <span style="color:red">*</span></label><br>
-                    <img src="../img/mem/<?php echo htmlentities($result->img);?>" width="100px" height="100px">
+                    <img src="fxb" width="100px" height="100px">
                     <div><input type="file" name="img" class="form-control"></div>
                 </div>
         
                 <div class="form-group">
                     <div class="col-sm-8 col-sm-offset-2">
-                        <input type="hidden" name="idedit" value="<?php echo htmlentities($result->no);?>">
+                        <input type="hidden" name="idedit" value="dgg">
                     </div>
                 </div>
         
@@ -76,23 +76,17 @@
 
                     <div class="form-group">
                         <label class="control-label">Name <span style="color:red">*</span></label>
-                        <input type="text" name="name" class="form-control" required value="<?php echo htmlentities($result->name);?>">
+                        <input type="text" name="name" class="form-control" required value="gdg" id="name1">
                     </div>
             
                     <div class="form-group">
                         <label class="control-label">Price <span style="color:red">*</span></label>
-                        <input type="text" name="desg" class="form-control" required value="<?php echo htmlentities($result->desg);?>">
+                        <input type="text" name="desg" class="form-control" required value="fzdg" id="price1">
                     </div>
                     
                     <div class="form-group">
                         <label class="control-label">Image <span style="color:red">*</span></label><br>
-                        <div><input type="file" name="img" class="form-control"></div>
-                    </div>
-            
-                    <div class="form-group">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <input type="hidden" name="idedit" value="<?php echo htmlentities($result->no);?>">
-                        </div>
+                        <div><input type="file" name="img" class="form-control" id="image1"></div>
                     </div>
             
                 </form>
@@ -100,7 +94,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-primary" id="addbtn">ADD</button>
             </div>
           </div>
         </div>
@@ -128,24 +122,20 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-            <div id="tb">
+            <tbody id="addedtasklist">
                 
-                    <tr>
+                    <!-- <tr>
                         <td>1</td>
                         <td>Ram</td>
                         <td>21</td>
-                        <td>Male</td>
+                        <td><a href="img/slide_02.jpg" target="_blank"><img src="img/slide_02.jpg" alt="" width="70px" height="40px"></a></td>
                         <td>
                             <a href="" class="btn" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i></a>
                             <a href="" onclick="return confirm('Do you want to Delete');"><i class="fa fa-trash" style="color:red"></i></a>
                         </td>
                         
-                    </tr>
-                    
-                
-            </div>
-        </tbody>
+                    </tr> -->
+            </tbody>
         </table>
         <!-- product listing ends -->
 
@@ -165,6 +155,7 @@
         "lengthChange": false
     });
 </script>
+<script src="script.js"></script>
 
     
 </body>
