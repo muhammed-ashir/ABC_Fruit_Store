@@ -95,7 +95,6 @@ editbtn.addEventListener("click", function(){
     let editindex = document.getElementById("index2").value;
     
     for (keys in f_Obj[editindex]) {
-        // if(keys == 'name'){
 
             f_Obj[editindex].name = name2.value;
             f_Obj[editindex].price = price2.value;
@@ -106,6 +105,7 @@ editbtn.addEventListener("click", function(){
     showlist();
 })
 // edit item ends
+
 
 
 
