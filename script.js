@@ -7,12 +7,16 @@ let name2 = document.getElementById("name2");
 let price2 = document.getElementById("price2");
 let image2 = document.getElementById("image2");
 let editbtn = document.getElementById("editbtn");
+let addForm = document.getElementById("addForm");
 
 // add items
-addbtn.addEventListener("click", function(){
+addForm.addEventListener('submit',function(event){
+    event.preventDefault();
+
+    var reader = new FileReader();
+    var name = image1.files[0].name;
     name_val = name1.value;
     price_val = price1.value;
-    image_val  = image1.value;
 
     let f_item = localStorage.getItem("fruits");
     if(f_item == null){
@@ -21,10 +25,19 @@ addbtn.addEventListener("click", function(){
     else{
         f_Obj = JSON.parse(f_item);
     }
+
+    reader.addEventListener('load',function(){
         
-    f_Obj.push({name:name_val, price:price_val,image:image_val});
-    localStorage.setItem("fruits", JSON.stringify(f_Obj));
+           image_val  = this.result;
+           //  console.log(this.result);
+           f_Obj.push({name:name_val, price:price_val,image:image_val});
+           localStorage.setItem("fruits", JSON.stringify(f_Obj));
+
+    });
+
+    reader.readAsDataURL(image1.files[0]);
     location.reload();
+
 })
 // add items end
 
@@ -50,7 +63,7 @@ function showlist(){
                     <td>${index+1}</td>
                     <td>${item.name}</td>
                     <td>${item.price}</td>
-                    <td>${item.image}</td>
+                    <td><img src="${item.image}" width="60px" height="40px" /></td>
                     <td>
                             <a href="" onclick="edittask(${index})" class="btn" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i></a>
                             <a href="" class="btn" onclick="deleteitem(${index})"><i class="fa fa-trash" style="color:red"></i></a>
