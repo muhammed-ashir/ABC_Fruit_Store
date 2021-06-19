@@ -158,6 +158,8 @@ editForm.addEventListener('submit',function(event){
 })
 
 
+
+
 $(document).ready(function () {
     $('#fruits').DataTable();
 });
