@@ -52,14 +52,9 @@ function showlist(){
         f_Obj = JSON.parse(f_item);
     }
     let html = '';
-    let addedtasklist = document.getElementById("addedtasklist");
+    let fruitslist = document.getElementById("fruitslist");
     f_Obj.forEach((item, index) => {
 
-        if(item.completeStatus==true){
-            taskCompleteValue = `<td class="completed">${item.task_name}</td>`;
-        }else{
-            taskCompleteValue = `<td>${item.task_name}</td>`;
-        }
         html += `<tr>
                     <td>${index+1}</td>
                     <td>${item.name}</td>
@@ -71,7 +66,7 @@ function showlist(){
                     </td>
                 </tr>`;
     });
-    addedtasklist.innerHTML = html;
+    fruitslist.innerHTML = html;
 }
 // showlist ends
 
@@ -85,7 +80,7 @@ function deleteitem(index){
         showlist();
     }
     else{
-        alert("opppssss!!!");
+        
     }
 }
 // delete item ends
