@@ -115,6 +115,8 @@ editForm.addEventListener('submit',function(event){
     let f_Obj = JSON.parse(f_item); 
     let editindex = document.getElementById("index2").value;
 
+    if(image2.files[0]){
+
     var reader = new FileReader();
 
     reader.addEventListener('load',function(){
@@ -135,6 +137,21 @@ editForm.addEventListener('submit',function(event){
     });
 
     reader.readAsDataURL(image2.files[0]);
+
+
+    }
+    else{
+
+        for (keys in f_Obj[editindex]) {
+    
+            f_Obj[editindex].name = name2.value;
+            f_Obj[editindex].price = price2.value;
+            f_Obj[editindex].image = dimg.src;
+                    
+        }
+        localStorage.setItem("fruits", JSON.stringify(f_Obj));
+
+    }
     
     location.reload();
 
