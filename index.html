@@ -28,23 +28,23 @@
 
                 <div class="form-group">
                     <label class="control-label">Name <span style="color:red">*</span></label>
-                    <input type="text" name="name" class="form-control" required value="ff">
+                    <input type="text" name="name" class="form-control" required value="" id="name2">
                 </div>
         
                 <div class="form-group">
                     <label class="control-label">Price <span style="color:red">*</span></label>
-                    <input type="text" name="desg" class="form-control" required value="gzdxf">
+                    <input type="text" name="desg" class="form-control" required value="gzdxf" id="price2">
                 </div>
                 
                 <div class="form-group">
                     <label class="control-label">Image <span style="color:red">*</span></label><br>
-                    <img src="fxb" width="100px" height="100px">
-                    <div><input type="file" name="img" class="form-control"></div>
+                    <!-- <img src="fxb" width="100px" height="100px"> -->
+                    <div><input type="text" name="img" class="form-control" id="image2"></div>
                 </div>
         
                 <div class="form-group">
                     <div class="col-sm-8 col-sm-offset-2">
-                        <input type="hidden" name="idedit" value="dgg">
+                        <input type="hidden" id="index2" value="">
                     </div>
                 </div>
         
@@ -53,7 +53,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" id="editbtn">Save changes</button>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
                     
                     <div class="form-group">
                         <label class="control-label">Image <span style="color:red">*</span></label><br>
-                        <div><input type="file" name="img" class="form-control" id="image1"></div>
+                        <div><input type="text" name="img" class="form-control" id="image1"></div>
                     </div>
             
                 </form>
@@ -100,6 +100,7 @@
         </div>
       </div>
       <!-- modal2 ends -->
+      
   
       <h1 style="text-align: center;margin-top: 30px;font-weight: 700;">ABC Fruit Store</h1>
 
