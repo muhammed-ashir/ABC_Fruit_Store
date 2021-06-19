@@ -23,7 +23,7 @@ addbtn.addEventListener("click", function(){
     location.reload();
 })
 
-// showtask
+// showlist
 function showtask(){
     let webtask = localStorage.getItem("fruits");
     if(webtask == null){
@@ -48,12 +48,27 @@ function showtask(){
                     <td>${item.image}</td>
                     <td>
                             <a href="" onclick="edittask(${index})" class="btn" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i></a>
-                            <a href="" id=${index} onclick="return confirm('Do you want to Delete');"><i class="fa fa-trash" style="color:red"></i></a>
+                            <a href="" class="btn" onclick="deleteitem(${index})"><i class="fa fa-trash" style="color:red"></i></a>
                     </td>
                 </tr>`;
     });
     addedtasklist.innerHTML = html;
 }
+
+// delete item
+function deleteitem(index){
+    if(confirm('Do you want to Delete')){
+        let webtask = localStorage.getItem("fruits");
+        let taskObj = JSON.parse(webtask);
+        taskObj.splice(index, 1);
+        localStorage.setItem("fruits", JSON.stringify(taskObj));
+        showtask();
+    }
+    else{
+        alert("opppssss!!!");
+    }
+}
+// delete item ends
 
 
 
