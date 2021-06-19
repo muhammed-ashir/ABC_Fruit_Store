@@ -2,19 +2,20 @@ showlist();
 let name1 = document.getElementById("name1");
 let price1 = document.getElementById("price1");
 let image1 = document.getElementById("image1");
-let addbtn = document.getElementById("addbtn");
 let name2 = document.getElementById("name2");
 let price2 = document.getElementById("price2");
 let image2 = document.getElementById("image2");
 let editbtn = document.getElementById("editbtn");
 let addForm = document.getElementById("addForm");
+let editForm = document.getElementById("editForm");
+
 
 // add items
 addForm.addEventListener('submit',function(event){
     event.preventDefault();
 
     var reader = new FileReader();
-    var name = image1.files[0].name;
+    // var name = image1.files[0].name;
     name_val = name1.value;
     price_val = price1.value;
 
@@ -89,9 +90,12 @@ function deleteitem(index){
 }
 // delete item ends
 
+
+
 // edit item
 function edittask(index){
     let index2 = document.getElementById("index2");
+    let dimg = document.getElementById("dimg");
     index2.value = index;
 
     let f_item = localStorage.getItem("fruits");
@@ -99,27 +103,42 @@ function edittask(index){
     
     name2.value = f_Obj[index]['name'];
     price2.value = f_Obj[index]['price'];
-    image2.value = f_Obj[index]['image'];
+    dimg.src = f_Obj[index]['image'];
+    // image2.value = f_Obj[index]['image'];
 }
 
-editbtn.addEventListener("click", function(){
+
+editForm.addEventListener('submit',function(event){
+    event.preventDefault();
+
     let f_item = localStorage.getItem("fruits");
     let f_Obj = JSON.parse(f_item); 
     let editindex = document.getElementById("index2").value;
-    
-    for (keys in f_Obj[editindex]) {
 
-            f_Obj[editindex].name = name2.value;
-            f_Obj[editindex].price = price2.value;
-            f_Obj[editindex].image = image2.value;
+    var reader = new FileReader();
+
+    reader.addEventListener('load',function(){
+
+        // image2_val  = this.result;
+        // console.log(image2_val);
+
+        for (keys in f_Obj[editindex]) {
+           f_Obj[editindex].name = name2.value;
+           f_Obj[editindex].price = price2.value;
+           f_Obj[editindex].image = this.result;
+        }
+        console.log(f_Obj);
         
-      }
-    localStorage.setItem("fruits", JSON.stringify(f_Obj));
-    showlist();
+        localStorage.setItem("fruits", JSON.stringify(f_Obj));
+
+
+    });
+
+    reader.readAsDataURL(image2.files[0]);
+    
+    location.reload();
+
 })
-// edit item ends
-
-
 
 
 $(document).ready(function () {
