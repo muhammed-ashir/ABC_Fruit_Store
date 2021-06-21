@@ -5,7 +5,6 @@ let image1 = document.getElementById("image1");
 let name2 = document.getElementById("name2");
 let price2 = document.getElementById("price2");
 let image2 = document.getElementById("image2");
-let editbtn = document.getElementById("editbtn");
 let addForm = document.getElementById("addForm");
 let editForm = document.getElementById("editForm");
 
@@ -61,7 +60,7 @@ function showlist(){
                     <td>${item.price}</td>
                     <td><img src="${item.image}" width="60px" height="40px" /></td>
                     <td>
-                            <a href="" onclick="edittask(${index})" class="btn" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i></a>
+                            <a href="" onclick="edititem(${index})" class="btn" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i></a>
                             <a href="" class="btn" onclick="deleteitem(${index})"><i class="fa fa-trash" style="color:red"></i></a>
                     </td>
                 </tr>`;
@@ -88,7 +87,7 @@ function deleteitem(index){
 
 
 // edit item
-function edittask(index){
+function edititem(index){
     let index2 = document.getElementById("index2");
     let dimg = document.getElementById("dimg");
     index2.value = index;
